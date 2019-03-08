@@ -1,0 +1,305 @@
+{
+  "info": {
+    "title": "LoopBack Application",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/cars/count": {
+      "get": {
+        "x-controller-name": "CarController",
+        "x-operation-name": "count",
+        "tags": [
+          "CarController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Car model count",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "type": "object"
+          }
+        ]
+      }
+    },
+    "/cars/{id}": {
+      "put": {
+        "x-controller-name": "CarController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "CarController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Car PUT success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "x-parameter-index": 1,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "x-controller-name": "CarController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "CarController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Car PATCH success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "x-parameter-index": 1,
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          }
+        ]
+      },
+      "get": {
+        "x-controller-name": "CarController",
+        "x-operation-name": "findById",
+        "tags": [
+          "CarController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Car model instance",
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "number"
+          }
+        ]
+      },
+      "delete": {
+        "x-controller-name": "CarController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "CarController"
+        ],
+        "responses": {
+          "204": {
+            "description": "Car DELETE success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "number"
+          }
+        ]
+      }
+    },
+    "/cars": {
+      "post": {
+        "x-controller-name": "CarController",
+        "x-operation-name": "create",
+        "tags": [
+          "CarController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Car model instance",
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          }
+        ]
+      },
+      "patch": {
+        "x-controller-name": "CarController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "CarController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Car PATCH success count",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "type": "object"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Car"
+            }
+          }
+        ]
+      },
+      "get": {
+        "x-controller-name": "CarController",
+        "x-operation-name": "find",
+        "tags": [
+          "CarController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Car model instances",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Car"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "type": "object"
+          }
+        ]
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "greeting": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "headers": {
+                  "type": "object",
+                  "properties": {
+                    "Content-Type": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        },
+        "parameters": []
+      }
+    }
+  },
+  "swagger": "2.0",
+  "schemes": [
+    "http"
+  ],
+  "host": "localhost:3000",
+  "basePath": "/",
+  "definitions": {
+    "Car": {
+      "title": "Car",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "make": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "year": {
+          "type": "number"
+        },
+        "horsepower": {
+          "type": "number"
+        },
+        "torque": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "make",
+        "model",
+        "year"
+      ]
+    }
+  },
+  "x-components": {}
+}
