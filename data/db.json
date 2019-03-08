@@ -1,0 +1,13 @@
+{
+  "ids": {
+    "Car": 2
+  },
+  "models": {
+    "Car": {
+      "1": "{\"id\":1,\"make\":\"Acura\",\"model\":\"MDX\",\"year\":2019,\"horsepower\":290,\"torque\":267}",
+      "2": "{\"id\":2,\"make\":\"BMW\",\"model\":\"X5\",\"year\":2018,\"horsepower\":255,\"torque\":300}",
+      "3": "{\"id\":3,\"make\":\"Mercedes Benz\",\"model\":\"GLE 350\",\"year\":2019,\"horsepower\":302,\"torque\":273}"
+    }
+  }
+}
+
